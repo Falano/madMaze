@@ -20,18 +20,31 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(0, 0, speed * 0.01f);
+            changeLayer.changer.ChangeLayer("north");
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(0, 0, speed * -0.01f);
+            changeLayer.changer.ChangeLayer("south");
+        }
+
+            if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, rotationSpeed, 0);
+            changeLayer.changer.ChangeLayer("east");
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, -rotationSpeed, 0);
+            changeLayer.changer.ChangeLayer("west");
+
         }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0, 0, speed * 0.01f);
-        }
+
+
     }
 }
