@@ -29,7 +29,7 @@ public class changeLayer : MonoBehaviour {
 	}
 
 
-    void ChangeLayer(string layer) {
+    public void ChangeLayer(string layer) {
         player.layer = LayerMask.NameToLayer(layer);
         print("(p)layer = " + layer);
         camera.cullingMask = (1 << player.layer) | (1 << 0);
