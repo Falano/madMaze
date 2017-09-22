@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class orientationPlayer : MonoBehaviour {
+public class orientationPlayerOrtho : MonoBehaviour {
     private string orientation = "north";
     private GameObject go;
 
 	// Use this for initialization
 	void Start () {
-        go = gameObject;
+        go = this.gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*
         if (transform.eulerAngles.y < 45 || transform.eulerAngles.y >= 315) {
              orientation = "north";
         }
@@ -31,8 +30,7 @@ public class orientationPlayer : MonoBehaviour {
         }
         
         if (go.layer!= LayerMask.NameToLayer(orientation)) {
-            changeLayer.changer.ChangeLayer(orientation);
+            changeLayerOrtho.changerOrtho.ChangeLayer(orientation);
                 }
-                */
     }
 }

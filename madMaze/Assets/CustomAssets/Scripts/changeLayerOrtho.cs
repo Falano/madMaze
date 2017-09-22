@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeLayer : MonoBehaviour {
+public class changeLayerOrtho : MonoBehaviour {
     GameObject player;
     Camera camera;
-    public static changeLayer changer;
+    public static changeLayerOrtho changerOrtho;
 
 
     void Awake()
     {
-        if (changer == null)
+        if (changerOrtho == null)
         {
             DontDestroyOnLoad(gameObject);
-            changer = this;
+            changerOrtho = this;
         }
-        else if (changer != this)
+        else if (changerOrtho != this)
         {
             Destroy(gameObject);
         }
@@ -39,24 +39,5 @@ public class changeLayer : MonoBehaviour {
         obj.layer = LayerMask.NameToLayer(layer);
         print(obj.name + " layer = " + layer);
         camera.cullingMask = (1 << obj.layer) | (1 << 0);
-    }
-
-    // Update is called once per frame
-    void Update () {
-        if (Input.GetKeyDown(KeyCode.Y)) {
-            ChangeLayer("north");
-        }
-        if (Input.GetKeyDown(KeyCode.J)) {
-            ChangeLayer("east");
-
-        }
-        if (Input.GetKeyDown(KeyCode.H)) {
-            ChangeLayer("south");
-
-        }
-        if (Input.GetKeyDown(KeyCode.G)) {
-            ChangeLayer("west");
-
-        }
     }
 }
