@@ -131,4 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   goalRot: {x: 0, y: 0, z: 0, w: 0}
-  rotationSpeed: 100
+  rotationSpeed: 200
