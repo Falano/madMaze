@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4822185613979176}
   - component: {fileID: 114385233473444076}
   m_Layer: 11
-  m_Name: TestWest
+  m_Name: West-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
