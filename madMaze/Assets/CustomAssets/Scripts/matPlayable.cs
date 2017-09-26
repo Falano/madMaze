@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class matPlayable : MonoBehaviour {
-    public static Color color = Color.blue;
+    public static Color color = Color.black;
     Renderer[] rends;
 
 	// Use this for initialization
