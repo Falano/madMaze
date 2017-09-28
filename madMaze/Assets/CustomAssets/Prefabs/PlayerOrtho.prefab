@@ -132,3 +132,8 @@ MonoBehaviour:
   speed: 5
   goalRot: {x: 0, y: 0, z: 0, w: 0}
   rotationSpeed: 200
+  mats:
+  - {fileID: 2100000, guid: c8e79f01192bd854682df00c01f653bf, type: 2}
+  - {fileID: 2100000, guid: 07ffe94d5a3639e4e966bcac5851bb8c, type: 2}
+  - {fileID: 2100000, guid: d866f28c18c29ed43a30281a28f2210a, type: 2}
+  - {fileID: 2100000, guid: 162a798eb57af814fbed925fb4d0e6b8, type: 2}
