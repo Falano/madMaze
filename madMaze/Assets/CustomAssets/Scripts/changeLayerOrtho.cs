@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class changeLayerOrtho : MonoBehaviour {
     GameObject player;
@@ -21,12 +22,14 @@ public class changeLayerOrtho : MonoBehaviour {
         }
     }
 
-        void Start () {
+        void OnEnable () {
+        SceneManager.sceneLoaded += getPlayerECam;
+    }
+
+    void getPlayerECam(Scene scene, LoadSceneMode mode) {
         player = GameObject.FindGameObjectWithTag("Player");
         camera = player.GetComponentInChildren<Camera>();
-
-	}
-
+    }
 
     public void ChangeLayer(string layer) {
         player.layer = LayerMask.NameToLayer(layer);
@@ -39,5 +42,10 @@ public class changeLayerOrtho : MonoBehaviour {
         obj.layer = LayerMask.NameToLayer(layer);
         print(obj.name + " layer = " + layer);
         camera.cullingMask = (1 << obj.layer) | (1 << 0);
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded += getPlayerECam;
     }
 }

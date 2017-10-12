@@ -73,7 +73,7 @@ public class PlayerMoveOrtho : MonoBehaviour
                     mat.color = tmpCol;
                     */
                     
-                    //change emit (doesn't work. whyyyy?)
+                    //change emit
                     emit = 1-Mathf.Abs(Mathf.Lerp(1, -1, ((transform.rotation.eulerAngles.y + 360) % 90) / 90));
                     tmpCol = new Color(emit, emit, emit, 1);
                     mat.SetColor ("_EmissionColor", tmpCol);
