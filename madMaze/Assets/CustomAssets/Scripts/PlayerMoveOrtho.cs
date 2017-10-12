@@ -5,17 +5,26 @@ using UnityEngine;
 public class PlayerMoveOrtho : MonoBehaviour
 {
 
-    public float speed = 5;
+    public float speed = 5; //only useful si pas cases
+    public float step = .2f; // only useful si cases
     public Quaternion goalRot;
+    public Vector3 goalPos;
     [SerializeField]
     private float rotationSpeed = 50;
     private Vector3[] directions = { new Vector3(0, 0, 0), new Vector3(0, 90, 0), new Vector3(0, 180, 0), new Vector3(0, 270, 0) };
     private int dir = 0;
     private bool rotating = false;
+    private bool advancing = false;
+
     public Material[] mats;
     private Color[] baseCols;
     private Color tmpCol;
     private float emit;
+
+    private void Start()
+    {
+        goalPos = transform.position;
+    }
 
     void SoftRotate(int rot)
     {
@@ -25,39 +34,45 @@ public class PlayerMoveOrtho : MonoBehaviour
         goalRot = Quaternion.Euler(directions[dir]);
         baseCols = new Color[mats.Length];
 
-        for (int i = 0; i < mats.Length; i ++)
+        for (int i = 0; i < mats.Length; i++)
         {
             baseCols[i] = mats[i].color;
         }
     }
 
-
-    void Update()
+    void SoftAdvance()
     {
-        if (!rotating)
-        {
-
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                print("I'm never giving up");
-            }
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                transform.position += transform.forward * Time.deltaTime * speed;
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                SoftRotate(1);
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                SoftRotate(-1);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2)) {
+            if (hit.collider.gameObject.layer == gameObject.layer || hit.collider.gameObject.layer == 0) {
+                return;
             }
         }
 
-        else
+        advancing = true;
+        goalPos = transform.position + transform.forward*2;
+    }
+
+    void Update()
+    {
+        // follow-up on SoftAdvance()
+        if (advancing)
+        {
+            if (goalPos != transform.position)
+            {
+                transform.position = Vector3.Lerp(transform.position, goalPos, step);
+                if (Vector3.Distance(goalPos, transform.position) <= step * .1)
+                {
+                    transform.position = goalPos;
+                }
+            }
+            else
+            {
+                advancing = false;
+            }
+        }
+
+        if (rotating)
         {
             // follow-up on SoftRotate()
             if (goalRot != transform.rotation)
@@ -72,11 +87,11 @@ public class PlayerMoveOrtho : MonoBehaviour
                     tmpCol.a = Mathf.Abs(Mathf.Lerp(1, -1, ((transform.rotation.eulerAngles.y + 360) % 90) / 90));
                     mat.color = tmpCol;
                     */
-                    
+
                     //change emit
-                    emit = 1-Mathf.Abs(Mathf.Lerp(1, -1, ((transform.rotation.eulerAngles.y + 360) % 90) / 90));
+                    emit = 1 - Mathf.Abs(Mathf.Lerp(1, -1, ((transform.rotation.eulerAngles.y + 360) % 90) / 90));
                     tmpCol = new Color(emit, emit, emit, 1);
-                    mat.SetColor ("_EmissionColor", tmpCol);
+                    mat.SetColor("_EmissionColor", tmpCol);
                 }
             }
 
@@ -86,11 +101,40 @@ public class PlayerMoveOrtho : MonoBehaviour
                 transform.rotation = goalRot;
                 for (int i = 0; i < mats.Length; i++)
                 {
-                    mats[i].SetColor("_EmissionColor", new Color(0,0,0,1));
+                    mats[i].SetColor("_EmissionColor", new Color(0, 0, 0, 1));
                     tmpCol = new Color(0, 0, 0, 1);
                     //mats[i].color = baseCols[i];
                 }
             }
         }
+
+        if (Input.anyKeyDown)
+        {
+            if (advancing || rotating)
+            {
+                transform.position = goalPos;
+                transform.rotation = goalRot;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            SoftAdvance();
+            //transform.position += transform.forward * Time.deltaTime * speed;
+        }
+
+        if (!rotating)
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                SoftRotate(1);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                SoftRotate(-1);
+            }
+
+        }
     }
+
 }
