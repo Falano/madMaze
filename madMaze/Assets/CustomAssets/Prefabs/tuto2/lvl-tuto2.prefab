@@ -124,8 +124,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890099395433278}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -2, y: 0, z: -8.77}
-  m_LocalScale: {x: 3, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -2, y: 0, z: -6}
+  m_LocalScale: {x: 14, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 4252291438170010}
   m_RootOrder: 4
@@ -168,8 +168,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224463666190602}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -13}
-  m_LocalScale: {x: 3, y: 0.20000036, z: 0.20000021}
+  m_LocalPosition: {x: 5, y: 0, z: -13}
+  m_LocalScale: {x: 14, y: 0.20000036, z: 2}
   m_Children: []
   m_Father: {fileID: 4252291438170010}
   m_RootOrder: 2
@@ -181,8 +181,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818287571702792}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.57, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 0.20000036, z: 0.20000026}
+  m_LocalPosition: {x: 5, y: 0, z: 1}
+  m_LocalScale: {x: 14, y: 0.20000036, z: 2}
   m_Children: []
   m_Father: {fileID: 4252291438170010}
   m_RootOrder: 3
@@ -194,8 +194,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836736381995104}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 12, y: 0, z: -8}
-  m_LocalScale: {x: 3, y: 2.5, z: 0.2}
+  m_LocalPosition: {x: 12, y: 0, z: -6}
+  m_LocalScale: {x: 14, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 4252291438170010}
   m_RootOrder: 0
@@ -366,14 +366,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836736381995104}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33346048799723420
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818287571702792}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33423686346620566
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -387,14 +387,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224463666190602}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33921181731817966
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890099395433278}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64086420817907604
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -406,9 +406,9 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_InflateMesh: 1
+  m_SkinWidth: 0.2
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64355297641124148
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -420,9 +420,9 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_InflateMesh: 1
+  m_SkinWidth: 0.2
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64432885316052920
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -434,9 +434,9 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_InflateMesh: 1
+  m_SkinWidth: 0.2
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64735394093049074
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -461,10 +461,10 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.2
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114307150300169038
 MonoBehaviour:
   m_ObjectHideFlags: 1

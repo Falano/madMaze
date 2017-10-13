@@ -178,12 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapCamera: {fileID: 0}
   mapCanvas: {fileID: 1820225118005956}
-  sizeCamera:
-  - 0
-  - 6
-  - 0
-  - 0
-  - 0
+  sizeCamera: []
 --- !u!114 &114150413884877038
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,16 +10,17 @@ public class GameCanvas : MonoBehaviour
     [SerializeField]
     private GameObject mapCanvas;
     [SerializeField]
-    private float[] sizeCamera;
+    private float[] sizeCamera; //6 10 16 18
 
 
     private void OnEnable()
     {
-        if (sizeCamera == null) {
+        //if (sizeCamera == null) {
+        //sizeCamera = null;
             sizeCamera = new float[SceneManager.sceneCountInBuildSettings];
-        }
+        //}
         SceneManager.sceneLoaded += CheckIfMenuScene;
-        SceneManager.sceneLoaded += InitializeMapCamera;
+        //SceneManager.sceneLoaded += InitializeMapCamera;
     }
 
 
@@ -41,16 +42,16 @@ public class GameCanvas : MonoBehaviour
         mapCanvas.SetActive(!mapCanvas.activeSelf);
     }
 
-
+    /*
     public void InitializeMapCamera(Scene scene, LoadSceneMode mode)
     {
         MapCamera.orthographicSize = sizeCamera[SceneManager.GetActiveScene().buildIndex];
     }
-
+    */
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= CheckIfMenuScene;
-        SceneManager.sceneLoaded -= InitializeMapCamera;
+        //SceneManager.sceneLoaded -= InitializeMapCamera;
     }
 }

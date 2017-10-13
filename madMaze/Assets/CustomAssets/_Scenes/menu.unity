@@ -978,6 +978,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224734077097741258, guid: a0c99f49856c0c14fa54d7a604c54d52,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1073,6 +1078,49 @@ Prefab:
       propertyPath: MapCamera
       value: 
       objectReference: {fileID: 506373610}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.data[3]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: sizeCamera.Array.data[4]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114741966527684078, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754983956246060, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879608963394578, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
   m_IsPrefabParent: 0
