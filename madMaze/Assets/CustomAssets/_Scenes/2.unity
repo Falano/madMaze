@@ -221,6 +221,19 @@ Prefab:
       propertyPath: sizeCamera.Array.data[3]
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 114071607293662228, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879608963394578, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754983956246060, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
   m_IsPrefabParent: 0
