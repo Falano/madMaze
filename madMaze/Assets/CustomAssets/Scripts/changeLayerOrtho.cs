@@ -22,7 +22,8 @@ public class changeLayerOrtho : MonoBehaviour {
         }
     }
 
-        void OnEnable () {
+
+    void OnEnable () {
         SceneManager.sceneLoaded += getPlayerECam;
     }
 
