@@ -8,6 +8,7 @@ public class PersistentGUI : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         DontDestroyOnLoad(gameObject);
+        gameObject.tag = "singleton";
 	}
 
     private void OnEnable()
@@ -17,12 +18,15 @@ public class PersistentGUI : MonoBehaviour {
 
     public void DestroyDuplicates(Scene scene, LoadSceneMode mode)
     {
-        GameObject[] guis = GameObject.FindGameObjectsWithTag("GUI");
-        foreach (GameObject gui in guis)
+        print("duplicates destroyed");
+        GameObject[] singletons = GameObject.FindGameObjectsWithTag("singleton");
+        foreach (GameObject single in singletons)
         {
-            if (gui.name == gameObject.name && gui != gameObject)
+            print("current obj: " + single.name);
+            if (single.name == gameObject.name && single != gameObject)
             {
-                Destroy(gui);
+                print(single.name + "DESTROYED");
+                Destroy(single);
             }
         }
     }

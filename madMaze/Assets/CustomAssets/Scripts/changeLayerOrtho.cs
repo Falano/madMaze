@@ -28,8 +28,11 @@ public class changeLayerOrtho : MonoBehaviour {
     }
 
     void getPlayerECam(Scene scene, LoadSceneMode mode) {
-        player = GameObject.FindGameObjectWithTag("Player");
-        camera = player.GetComponentInChildren<Camera>();
+        if (SceneManager.GetActiveScene().name != "menu" && SceneManager.GetActiveScene().name != "endMenu") {
+            player = GameObject.FindGameObjectWithTag("Player");
+            camera = player.GetComponentInChildren<Camera>();
+        }
+        
     }
 
     public void ChangeLayer(string layer) {

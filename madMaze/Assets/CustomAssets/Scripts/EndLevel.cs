@@ -15,7 +15,7 @@ public class EndLevel : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            menu.gotoNextScene();
+            menu.gotoNextSceneWithFlair();
         }
     }
 

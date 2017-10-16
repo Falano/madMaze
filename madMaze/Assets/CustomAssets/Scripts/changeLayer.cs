@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class changeLayer : MonoBehaviour {
     GameObject player;
@@ -22,10 +23,12 @@ public class changeLayer : MonoBehaviour {
     }
 
         void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
-        camera = player.GetComponentInChildren<Camera>();
-
-	}
+        if (SceneManager.GetActiveScene().name != "menu" && SceneManager.GetActiveScene().name != "endMenu")
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            camera = player.GetComponentInChildren<Camera>();
+        }
+    }
 
 
     public void ChangeLayer(string layer) {
