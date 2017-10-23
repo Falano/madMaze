@@ -41,5 +41,9 @@ Thumbs.db
 graphical files
 ===========
 *~
-*.kra
 *.blend1
+\.lvlTuto01\.kra-autosave\.kra
+
+\.lvlTuto02\.kra-autosave\.kra
+
+\.testLevelDes02\.kra-autosave\.kra

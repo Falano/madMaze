@@ -1,0 +1,4 @@
+todoes jamjam madmaze
+
+avancer par case (raytrace to check si peut)
+quand avance, checker que bien dans l'axe (si pas cases, sinon inutile)
