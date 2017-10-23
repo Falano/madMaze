@@ -13,7 +13,7 @@ public class changeLayer : MonoBehaviour {
     {
         if (changer == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             changer = this;
         }
         else if (changer != this)

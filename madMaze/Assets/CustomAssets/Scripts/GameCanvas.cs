@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class GameCanvas : MonoBehaviour
     private GameObject mapCanvas;
     [SerializeField]
     private float[] sizeCamera; //6 10 16 18
+    public Canvas waitingScreen;
+    public Image[] waitingImgs;
     [SerializeField]
-    private GameObject waitingScreen;
+    private float fadeTime;
 
     private void OnEnable()
     {
@@ -61,10 +64,21 @@ public class GameCanvas : MonoBehaviour
     }
 
     public void DisableWaitingScreen(Scene scene, LoadSceneMode mode) {
-        print("DisableWaitingScreen: " + waitingScreen.name);
-        waitingScreen.GetComponent<Canvas>().enabled = false;
-        print("DisableWaitingScreen: " + waitingScreen.GetComponent<Canvas>()  + "done");
-
+        waitingScreen.enabled = true;
+        /*
+        waitingImgs = waitingScreen.GetComponentsInChildren<Image>();
+        float alpha = 1;
+        float time = Time.time;
+        while (alpha > 0)
+        {
+            alpha = 1-((Time.time - time) / fadeTime);
+            foreach (Image img in waitingImgs)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
+            }
+        }
+        */
+        waitingScreen.enabled = false;
     }
 
     private void OnDisable()

@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PersistentGUI : MonoBehaviour {
+    public static GameObject unDestroyable;
 
-	// Use this for initialization
-	void Awake () {
+
+
+    // Use this for initialization
+    void Awake () {
         DontDestroyOnLoad(gameObject);
         gameObject.tag = "singleton";
 	}
@@ -16,6 +19,19 @@ public class PersistentGUI : MonoBehaviour {
         SceneManager.sceneLoaded += DestroyDuplicates;
     }
 
+    public void DestroyDuplicates(Scene scene, LoadSceneMode mode)
+    {
+        if (unDestroyable == null)
+        {
+            unDestroyable = gameObject;
+        }
+        else if (unDestroyable!= gameObject)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /*
     public void DestroyDuplicates(Scene scene, LoadSceneMode mode)
     {
         print("duplicates destroyed");
@@ -30,6 +46,7 @@ public class PersistentGUI : MonoBehaviour {
             }
         }
     }
+    */
 
     private void OnDisable()
     {

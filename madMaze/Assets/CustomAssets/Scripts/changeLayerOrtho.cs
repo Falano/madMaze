@@ -13,7 +13,7 @@ public class changeLayerOrtho : MonoBehaviour {
     {
         if (changerOrtho == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             changerOrtho = this;
         }
         else if (changerOrtho != this)

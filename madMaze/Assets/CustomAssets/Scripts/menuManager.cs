@@ -2,28 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour {
 
-    public GameObject waitingScreen;
-
-
-    public void InitializewaitingScreen(Scene scene, LoadSceneMode mode)
-    {
-        if (waitingScreen == null)
-        {
-            GameObject[] singletons = GameObject.FindGameObjectsWithTag("singleton");
-            foreach (GameObject single in singletons)
-            {
-                if (single.name == "waitingScreen")
-                {
-                    waitingScreen= single;
-                }
-            }
-
-        }
-    }
-
+    public Canvas waitingScreen;
+    public Image[] waitingImgs;
+    [SerializeField]
+    private float fadeTime = 2;
 
     public void gotoNextScene()
     {
@@ -33,7 +19,7 @@ public class menuManager : MonoBehaviour {
 
     public void gotoNextSceneWithFlair() { 
         // only works because I've got an "end game" scene; otherwise there'd be an "index out of range" error
-        IEnumerator changeSceneNow = changeScene(SceneManager.GetActiveScene().buildIndex + 1, 1f);
+        IEnumerator changeSceneNow = changeScene(SceneManager.GetActiveScene().buildIndex + 1, .2f);
         StartCoroutine(changeSceneNow);
 }
 
@@ -48,11 +34,22 @@ public void gotoMenu() {
 
     IEnumerator changeScene (int goalScene, float waitTime)
     {
-        //waitingScreen.SetActive(true);
-        waitingScreen.GetComponent<Canvas>().enabled = true;
+        waitingScreen.enabled = true;
+        /*
+        waitingImgs = waitingScreen.GetComponentsInChildren<Image>();
+        float alpha = 0;
+        float time = Time.time;
+        while (alpha <= 1)
+        {
+            alpha = (Time.time - time)/fadeTime;
+            foreach (Image img in waitingImgs)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
+            }
+        }
+        */
         yield return new WaitForSeconds(waitTime);
-        //waitingScreen.GetComponent<Canvas>().enabled = false;
-        //waitingScreen.SetActive(false);
+        //waitingScreen.enabled = false;
         SceneManager.LoadScene(goalScene);
     }
 
