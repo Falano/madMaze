@@ -11,7 +11,7 @@ public class GameCanvas : MonoBehaviour
     [SerializeField]
     private GameObject mapCanvas;
     [SerializeField]
-    private float[] sizeCamera; //6 10 16 18
+	private float[] sizeCamera; // = {6, 10, 16, 18}; //for some reason here it doesn't work?
     public Canvas waitingScreen;
     public Image[] waitingImgs;
     [SerializeField]
@@ -29,10 +29,7 @@ public class GameCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        if (sizeCamera == null) {
-        sizeCamera = null;
-            sizeCamera = new float[SceneManager.sceneCountInBuildSettings];
-        }
+		sizeCamera = new float[] {6, 10, 16, 18}; // this is the optimal size I measured for each level
         SceneManager.sceneLoaded += CheckIfMenuScene;
         SceneManager.sceneLoaded += InitializeMapCamera;
     }
@@ -60,7 +57,10 @@ public class GameCanvas : MonoBehaviour
     {
         mapCanvas.SetActive(!mapCanvas.activeSelf);
     }
-
+	public void ShowMap(bool ouinon)
+	{
+		mapCanvas.SetActive(ouinon);
+	}
     
     public void InitializeMapCamera(Scene scene, LoadSceneMode mode)
     {
@@ -72,7 +72,9 @@ public class GameCanvas : MonoBehaviour
                 }
             }
         }
-        MapCamera.orthographicSize = sizeCamera[SceneManager.GetActiveScene().buildIndex];
+		MapCamera.orthographicSize = sizeCamera[SceneManager.GetActiveScene().buildIndex];
+		print("MapCamera.orthographicSize = " + sizeCamera[SceneManager.GetActiveScene().buildIndex]);
+		mapCanvas.SetActive (false);
     }
 
 
