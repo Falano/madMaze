@@ -30,7 +30,7 @@ public class GameCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-		sizeCamera = new float[] {0, 3, 8, 14, 16}; // this is the optimal size I measured for each level
+		sizeCamera = new float[] {0, 6, 10, 14, 16}; // this is the optimal size I measured for each level
         SceneManager.sceneLoaded += CheckIfMenuScene;
         SceneManager.sceneLoaded += InitializeMapCamera;
     }
@@ -79,7 +79,6 @@ public class GameCanvas : MonoBehaviour
 		for (int i = 0; i <= MapCamera.orthographicSize*2; i++) {
 			for (int j = 0; j <= MapCamera.orthographicSize*2; j++) {
 				Instantiate (mapHider, new Vector3 (mapHider.transform.position.x + (mapHider.transform.localScale.x * i), mapHider.transform.position.y, mapHider.transform.position.z - (mapHider.transform.localScale.z * j)), Quaternion.identity);
-				//Instantiate (mapHider, new Vector3 (2,2,2));
 			}
 		}
     }
