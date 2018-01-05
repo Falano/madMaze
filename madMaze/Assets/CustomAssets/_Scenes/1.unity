@@ -894,7 +894,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4723194072390340, guid: ded8b1da5c22d8a47b640ebc8d53e498, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.42
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4723194072390340, guid: ded8b1da5c22d8a47b640ebc8d53e498, type: 2}
       propertyPath: m_LocalPosition.y
@@ -926,23 +926,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 20795260362013708, guid: ded8b1da5c22d8a47b640ebc8d53e498,
         type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.9411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 20795260362013708, guid: ded8b1da5c22d8a47b640ebc8d53e498,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.9411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 20795260362013708, guid: ded8b1da5c22d8a47b640ebc8d53e498,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.9411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 20795260362013708, guid: ded8b1da5c22d8a47b640ebc8d53e498,
-        type: 2}
       propertyPath: field of view
-      value: 100
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ded8b1da5c22d8a47b640ebc8d53e498, type: 2}

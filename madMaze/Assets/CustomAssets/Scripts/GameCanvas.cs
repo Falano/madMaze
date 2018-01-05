@@ -16,6 +16,16 @@ public class GameCanvas : MonoBehaviour
     public Image[] waitingImgs;
     [SerializeField]
     private float fadeTime;
+	private enum state
+	{
+		playing,
+		lvlOut,
+		lvlIn,
+	};
+	private state currState;
+	//int i;
+
+
 
     private void OnEnable()
     {
@@ -25,7 +35,6 @@ public class GameCanvas : MonoBehaviour
         }
         SceneManager.sceneLoaded += CheckIfMenuScene;
         SceneManager.sceneLoaded += InitializeMapCamera;
-        SceneManager.sceneLoaded += DisableWaitingScreen;
     }
 
 
@@ -34,6 +43,7 @@ public class GameCanvas : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "menu" || SceneManager.GetActiveScene().name == "endMenu")
         {
             gameObject.GetComponent<Canvas>().enabled = false;
+			waitingScreen.enabled = false;
         }
         else
         {
@@ -41,6 +51,10 @@ public class GameCanvas : MonoBehaviour
         }
     }
 
+
+	public void DisableWaitingScreen(Scene scene, LoadSceneMode mode){
+		waitingScreen.enabled = false;
+	}
 
     public void ShowMap()
     {
@@ -57,35 +71,81 @@ public class GameCanvas : MonoBehaviour
                     MapCamera = single.GetComponent<Camera>();
                 }
             }
-
         }
-
         MapCamera.orthographicSize = sizeCamera[SceneManager.GetActiveScene().buildIndex];
     }
 
-    public void DisableWaitingScreen(Scene scene, LoadSceneMode mode) {
-        waitingScreen.enabled = true;
-        /*
-        waitingImgs = waitingScreen.GetComponentsInChildren<Image>();
-        float alpha = 1;
-        float time = Time.time;
-        while (alpha > 0)
-        {
-            alpha = 1-((Time.time - time) / fadeTime);
-            foreach (Image img in waitingImgs)
-            {
-                img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
-            }
-        }
-        */
-        waitingScreen.enabled = false;
-    }
+
+	public void gotoNextScene()
+	{
+		// only works because I've got an "end game" scene; otherwise there'd be an "index out of range" error
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+
+
+	public void gotoNextSceneWithFlair() { 
+		// only works because I've got an "end game" scene; otherwise there'd be an "index out of range" error
+			changeScene(SceneManager.GetActiveScene().buildIndex + 1, .2f);
+	}
+
+	public void gotoMenu() {
+		SceneManager.LoadScene("menu");
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
+	}
+
+	public void changeScene (int goalScene, float waitTime)
+	{
+		StartCoroutine (appear(waitingScreen.GetComponentInChildren<Image>(), waitingScreen.GetComponentInChildren<Text>(), waitTime, .1f, goalScene));
+	}
+
+	IEnumerator appear(Image img, Text tx, float wait, float step, int goalScene){
+		// checking whether waitingScreen is the right one
+		//string[] names = {"TESSSSTTTTTT!","nope","sure", "why not", "this is the fifth level", "maybe?"};
+		//string[] names2 = {"truc","chose","bidule", "some", "a few", "some more"};
+		//waitingScreen.name = names[i];
+		//i++;
+		currState = state.lvlOut;
+		waitingScreen.enabled = true;
+		tx.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1);
+
+		while (currState == state.lvlOut) {
+			tx.color = new Color (tx.color.r, tx.color.g, tx.color.b, img.color.a + step);
+			img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + step);
+			if (img.color.a >= 1) {
+				currState = state.lvlIn;
+			}
+			yield return new WaitForSeconds (step*wait);
+		}
+		SceneManager.LoadScene(goalScene);
+		//waitingScreen.name = names2[i];
+		yield return new WaitForSeconds (wait);
+
+		while (currState == state.lvlIn) {
+			tx.color = new Color(tx.color.r, tx.color.g, tx.color.b, img.color.a - step);
+			img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - step);
+			if (img.color.a <= 0f) {
+				currState = state.playing;
+			}
+			yield return new WaitForSeconds (step*wait);
+		}
+		currState = state.playing;
+		waitingScreen.enabled = false;
+	}
+
+	public void Update(){
+		if (Input.GetKeyDown (KeyCode.P)) {
+			gotoNextSceneWithFlair ();
+		}
+	}
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= CheckIfMenuScene;
         SceneManager.sceneLoaded -= InitializeMapCamera;
-        SceneManager.sceneLoaded -= DisableWaitingScreen;
 
     }
 }
