@@ -29,7 +29,7 @@ public class GameCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-		sizeCamera = new float[] {6, 10, 16, 18}; // this is the optimal size I measured for each level
+		sizeCamera = new float[] {3, 8, 14, 16}; // this is the optimal size I measured for each level
         SceneManager.sceneLoaded += CheckIfMenuScene;
         SceneManager.sceneLoaded += InitializeMapCamera;
     }
