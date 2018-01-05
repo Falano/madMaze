@@ -11,7 +11,7 @@ public class GameCanvas : MonoBehaviour
     [SerializeField]
     private GameObject mapCanvas;
     [SerializeField]
-	private float[] sizeCamera; // = {6, 10, 16, 18}; //for some reason here it doesn't work?
+	private float[] sizeCamera; // = {0, 6, 10, 16, 18}; //for some reason here it doesn't work?
     public Canvas waitingScreen;
     public Image[] waitingImgs;
     [SerializeField]
@@ -23,13 +23,14 @@ public class GameCanvas : MonoBehaviour
 		lvlIn,
 	};
 	private state currState;
+	public GameObject mapHider;
 	//int i;
 
 
 
     private void OnEnable()
     {
-		sizeCamera = new float[] {3, 8, 14, 16}; // this is the optimal size I measured for each level
+		sizeCamera = new float[] {0, 3, 8, 14, 16}; // this is the optimal size I measured for each level
         SceneManager.sceneLoaded += CheckIfMenuScene;
         SceneManager.sceneLoaded += InitializeMapCamera;
     }
@@ -64,17 +65,23 @@ public class GameCanvas : MonoBehaviour
     
     public void InitializeMapCamera(Scene scene, LoadSceneMode mode)
     {
-        if (MapCamera == null) {
             GameObject[] singletons = GameObject.FindGameObjectsWithTag("singleton");
             foreach (GameObject single in singletons) {
-                if (single.name == "MapCamera") {
+                if (MapCamera == null && single.name == "MapCamera") {
                     MapCamera = single.GetComponent<Camera>();
-                }
-            }
-        }
+				}
+				else if (single.name == "mapHider") {
+					mapHider = single;
+			}
+		}
 		MapCamera.orthographicSize = sizeCamera[SceneManager.GetActiveScene().buildIndex];
-		print("MapCamera.orthographicSize = " + sizeCamera[SceneManager.GetActiveScene().buildIndex]);
 		mapCanvas.SetActive (false);
+		for (int i = 0; i <= MapCamera.orthographicSize*2; i++) {
+			for (int j = 0; j <= MapCamera.orthographicSize*2; j++) {
+				Instantiate (mapHider, new Vector3 (mapHider.transform.position.x + (mapHider.transform.localScale.x * i), mapHider.transform.position.y, mapHider.transform.position.z - (mapHider.transform.localScale.z * j)), Quaternion.identity);
+				//Instantiate (mapHider, new Vector3 (2,2,2));
+			}
+		}
     }
 
 
