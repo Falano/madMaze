@@ -617,7 +617,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506373609}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -254.28732, y: -142.75061, z: -1117.8811}
+  m_LocalPosition: {x: -255, y: -143, z: -1118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1885238856}
@@ -885,6 +885,44 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1049844783}
+--- !u!1 &1238868204 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1265461624298872, guid: c2d0fda50cc146d47962807fea49c5fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1686772021}
+--- !u!114 &1238868206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1238868204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 72
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 72
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Current Level
 --- !u!1 &1245020447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1158,37 @@ Prefab:
       objectReference: {fileID: 1686772022}
     - target: {fileID: 1879608963394578, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748471804158184, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748471804158184, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748471804158184, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344632766543718, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344632766543718, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344632766543718, guid: a0c99f49856c0c14fa54d7a604c54d52,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c99f49856c0c14fa54d7a604c54d52, type: 2}
@@ -1320,7 +1388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "A game made by  Noemie Scherer, \nCarole Debrouwer, and Nawal Karzaki"
+  m_Text: "A game made by Noemie Scherer, \nCarole Debrouwer, and Nawal Karzaki"
 --- !u!222 &1478369826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1520,22 +1588,22 @@ Prefab:
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1111.8811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
@@ -1550,12 +1618,12 @@ Prefab:
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -259.28732
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -157.75061
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224168693131649366, guid: c2d0fda50cc146d47962807fea49c5fb,
         type: 2}
@@ -1685,7 +1753,31 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 224126499388807790, guid: c2d0fda50cc146d47962807fea49c5fb,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224517243870907060, guid: c2d0fda50cc146d47962807fea49c5fb,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114470132821200580, guid: c2d0fda50cc146d47962807fea49c5fb,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265461624298872, guid: c2d0fda50cc146d47962807fea49c5fb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265461624298872, guid: c2d0fda50cc146d47962807fea49c5fb, type: 2}
+      propertyPath: m_Name
+      value: waitingText
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114157127842671868, guid: c2d0fda50cc146d47962807fea49c5fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c2d0fda50cc146d47962807fea49c5fb, type: 2}
   m_IsPrefabParent: 0
 --- !u!223 &1686772022 stripped
