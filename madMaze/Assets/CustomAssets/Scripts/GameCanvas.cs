@@ -145,7 +145,12 @@ public class GameCanvas : MonoBehaviour
 	}
 
 	public void Update(){
-		if (Input.GetKeyDown (KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            ShowMap(false);
+        }
+
+        if (Input.GetKeyDown (KeyCode.P)) {
 			gotoNextSceneWithFlair ();
 		}
 	}
